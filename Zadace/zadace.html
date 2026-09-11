@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SJIWP zadaća</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap');
+
+  :root{
+    --ink: #f4f2ff;
+    --ink-dim: #c9c3f2;
+    --card-bg: rgba(255,255,255,0.06);
+    --card-border: rgba(255,255,255,0.14);
+    --accent: #ffb74d;
+    --accent-soft: rgba(255,183,77,0.35);
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{ height: 100%; margin: 0; }
+
+  body{
+    min-height: 100vh;
+    padding: 48px 32px;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink);
+    background: linear-gradient(135deg, #1b1235 0%, #341b5c 35%, #5b2a7a 65%, #9a3f7c 100%);
+    background-attachment: fixed;
+  }
+
+  .page{
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .back{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ink-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 32px;
+    transition: color 0.25s ease;
+  }
+  .back:hover{ color: var(--ink); }
+  .back svg{ width: 14px; height: 14px; stroke: currentColor; }
+
+  h1{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-align: center;
+  }
+
+  p.lead{
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    max-width: 46ch;
+    margin: 0 auto 44px;
+    line-height: 1.6;
+    text-align: center;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .card{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 150px;
+    padding: 24px;
+    text-decoration: none;
+    color: var(--ink);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    text-align: left;
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease,
+                background 0.35s ease;
+  }
+
+  .card:hover, .card:focus-visible{
+    transform: translateY(-6px) scale(1.02);
+    border-color: var(--accent-soft);
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 18px 36px -12px rgba(0,0,0,0.45), 0 0 0 1px var(--accent-soft);
+    outline: none;
+  }
+
+  .card:active{ transform: translateY(-2px) scale(0.99); }
+
+  .card .glow{
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: radial-gradient(140px 80px at 20% 0%, var(--accent-soft), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+  }
+  .card:hover .glow{ opacity: 1; }
+
+  .card-title{
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1.15rem;
+  }
+
+  .card-meta{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--ink-dim);
+    font-size: 0.85rem;
+  }
+
+  .card-meta .arrow{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--card-border);
+    transition: transform 0.35s cubic-bezier(.2,.8,.2,1), background 0.35s ease, border-color 0.35s ease;
+  }
+
+  .card:hover .card-meta .arrow{
+    transform: translateX(4px);
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  .card:hover .card-meta .arrow svg{ stroke: #241237; }
+
+  .card-meta .arrow svg{
+    width: 14px;
+    height: 14px;
+    stroke: var(--ink);
+    transition: stroke 0.35s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .card .glow, .card-meta .arrow, .card-meta .arrow svg{ transition: none; }
+    .card:hover, .card:focus-visible{ transform: none; }
+  }
+
+  @media (max-width: 720px){
+    .grid{ grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px){
+    .grid{ grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="page">
+    <a class="back" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="19" y1="12" x2="5" y2="12"></line>
+        <polyline points="12 19 5 12 12 5"></polyline>
+      </svg>
+      Natrag na početnu
+    </a>
+
+    <h1>SJIWP zadaća</h1>
+    <p class="lead">Popis svih zadaća, od prve do šeste. Klikni na zadaću koju želiš otvoriti, Krunic.</p>
+
+    <div class="grid">
+      <a class="card" href="zadaca1.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 1</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="card" href="zadaca2.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 2</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="card" href="zadaca3.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 3</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="card" href="zadaca4.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 4</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="card" href="zadaca5.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 5</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+
+      <a class="card" href="zadaca6.html">
+        <span class="glow"></span>
+        <span class="card-title">Zadaća 6</span>
+        <span class="card-meta">
+          Otvori
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </span>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>
