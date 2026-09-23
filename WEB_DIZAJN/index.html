@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LV2 - Animacije</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 2rem;
+}
+.gumb {
+padding: 12px 32px;
+font-size: 18px;
+color: #fff;
+background-color: #1f4e79;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.gumb:hover {
+background-color: #2e75b6;
+transform: scale(1.1);
+}
+.staza {
+width: 500px;
+border: 1px solid #999;
+}
+.kvadrat {
+width: 100px;
+height: 100px;
+background-color: #c0392b;
+animation-name: pomak;
+animation-duration: 4s;
+animation-iteration-count: infinite;
+animation-direction: alternate;
+}
+.kvadrat:hover {
+background-color: #2980b9;
+}
+.ucitavanje {
+      width: 60px;
+      height: 60px;
+      border: 6px solid lightgray;
+      border-top-color: #1f4e79;
+      border-radius: 50%;
+      animation: vrtnja 1s linear infinite;
+    }
+
+    @keyframes vrtnja {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+@keyframes pomak {
+0% { transform: translateX(0); background-color: #c0392b; }
+50% { transform: translateX(200px); background-color: #f1c40f; }
+100% { transform: translateX(400px); background-color: #27ae60; }
+}
+
+
+</style>
+<body>
+<h1>CSS animacije</h1>
+<h2>1. Prijelaz</h2>
+<button class="gumb">Prijava</button>
+<h2>2. Animacija</h2>
+<div class="staza">
+<div class="kvadrat"></div>
+</div>
+<h2>3. Indikator ucitavanja</h2>
+<div class="ucitavanje"></div>
+
+
+
+
+</body>
+</html>
