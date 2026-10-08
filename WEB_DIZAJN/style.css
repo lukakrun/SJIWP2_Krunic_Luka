@@ -1,29 +1,221 @@
-<!DOCTYPE html>
-<html lang="hr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontakt - TS Slavonski Brod</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <nav class="izbornik">
-    <a class="izbornik__veza" href="index.html">Naslovnica</a>
-    <a class="izbornik__veza" href="upisi.html">Upisi</a>
-    <a class="izbornik__veza izbornik__veza--aktivna" href="kontakt.html">Kontakt</a>
-  </nav>
+:root {
+  --tamna: #1f2937;
+  --plava: #2563eb;
+  --zuta: #f1c40f;
+  --svijetla: #f3f4f6;
+  --bijela: #ffffff;
 
-  <header class="hero">
-    <h1 class="hero__naslov">Kontakt</h1>
-    <p class="hero__opis">Javite nam se</p>
-  </header>
+  --trajanje-brzo: 0.2s;
+  --trajanje-srednje: 0.5s;
+  --trajanje-sporo: 0.8s;
 
-  <main class="sadrzaj">
-    <ul class="podaci">
-      <li>Eugena Kumicica 55, 35000 Slavonski Brod</li>
-      <li>Telefon: 035 000 000</li>
-      <li>E-posta: skola@primjer.hr</li>
-    </ul>
-  </main>
-</body>
-</html>
+  --krivulja: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --pomak: 80px;
+}
+
+/* =========================
+   OSNOVNI CSS
+   ========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--svijetla);
+  color: var(--tamna);
+}
+
+/* =========================
+   NAVIGACIJA
+   ========================= */
+
+.izbornik {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 20px;
+  background-color: var(--tamna);
+}
+
+.izbornik__veza {
+  color: var(--bijela);
+  text-decoration: none;
+  padding: 8px 12px;
+  border-bottom: 2px solid transparent;
+
+  transition:
+    color var(--trajanje-brzo) var(--krivulja),
+    border-color var(--trajanje-brzo) var(--krivulja);
+}
+
+.izbornik__veza:hover,
+.izbornik__veza:focus-visible {
+  color: var(--zuta);
+  border-color: var(--zuta);
+}
+
+.izbornik__veza--aktivna {
+  color: var(--zuta);
+  border-color: var(--zuta);
+}
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: var(--plava);
+  color: var(--bijela);
+}
+
+.hero__naslov {
+  margin: 0 0 15px;
+  font-size: 42px;
+}
+
+.hero__opis {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   GUMB
+   ========================= */
+
+.gumb {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--zuta);
+  color: #111827;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+
+  transition:
+    transform var(--trajanje-brzo) var(--krivulja),
+    background-color var(--trajanje-brzo) var(--krivulja);
+}
+
+.gumb:hover {
+  transform: translateY(-3px);
+  background-color: #ffd83d;
+}
+
+/* =========================
+   SADRŽAJ
+   ========================= */
+
+.sadrzaj {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* =========================
+   KARTICE
+   ========================= */
+
+.kartica {
+  background-color: var(--bijela);
+  padding: 25px;
+  border-radius: 10px;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  transition:
+    transform var(--trajanje-srednje) var(--krivulja),
+    box-shadow var(--trajanje-srednje) var(--krivulja);
+}
+
+.kartica:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.kartica h2 {
+  margin-top: 0;
+  color: var(--plava);
+}
+
+/* =========================
+   ANIMACIJE
+   ========================= */
+
+@keyframes pojava {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pojava-odozdo {
+  from {
+    opacity: 0;
+    transform: translateY(var(--pomak));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.anim-pojava,
+.anim-odozdo {
+  animation-duration: var(--trajanje-sporo);
+  animation-timing-function: var(--krivulja);
+  animation-fill-mode: backwards;
+  animation-delay: var(--odgoda, 0s);
+}
+
+.anim-pojava {
+  animation-name: pojava;
+}
+
+.anim-odozdo {
+  animation-name: pojava-odozdo;
+}
+
+/* =========================
+   MOBITEL
+   ========================= */
+
+@media (max-width: 700px) {
+  .sadrzaj {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__naslov {
+    font-size: 32px;
+  }
+
+  .izbornik {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+/* =========================
+   SMANJENE ANIMACIJE
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
