@@ -107,6 +107,483 @@
   trokut(105, 212, 105, 242, 145, 227, "#1f5fbf"); // leptir mašna
   trokut(195, 212, 195, 242, 155, 227, "#1f5fbf");
   krug(150, 227, 9, "#f5c518");
+  
+  
+</script>
+<h2>Canvas izazovi</h2>
+
+<h3>1. Lice</h3>
+<canvas id="lice" width="300" height="200"></canvas>
+
+<h3>2. Auto</h3>
+<canvas id="auto" width="300" height="200"></canvas>
+
+<h3>3. Drvo</h3>
+<canvas id="drvo" width="300" height="200"></canvas>
+
+<h3>4. Kuća</h3>
+<canvas id="kuca" width="300" height="200"></canvas>
+
+<h3>5. Klaun</h3>
+<canvas id="klaun" width="300" height="300"></canvas>
+
+<h3>6. Raketa</h3>
+<canvas id="raketa" width="300" height="300"></canvas>
+
+<h3>7. Mačka</h3>
+<canvas id="macka" width="300" height="250"></canvas>
+
+<script>
+
+// ========================================
+// 1. LICE
+// ========================================
+
+const lice = document.getElementById("lice").getContext("2d");
+
+// pozadina
+lice.fillStyle = "#a8dcf5";
+lice.fillRect(0, 0, 300, 200);
+
+// lice
+lice.fillStyle = "#f5cfa0";
+lice.beginPath();
+lice.arc(150, 100, 60, 0, Math.PI * 2);
+lice.fill();
+
+// oči
+lice.fillStyle = "#222";
+lice.beginPath();
+lice.arc(130, 90, 6, 0, Math.PI * 2);
+lice.fill();
+
+lice.beginPath();
+lice.arc(170, 90, 6, 0, Math.PI * 2);
+lice.fill();
+
+// nos
+lice.fillStyle = "#e88b5c";
+lice.beginPath();
+lice.arc(150, 105, 5, 0, Math.PI * 2);
+lice.fill();
+
+// usta
+lice.strokeStyle = "#d94b5b";
+lice.lineWidth = 4;
+lice.beginPath();
+lice.arc(150, 110, 25, 0, Math.PI);
+lice.stroke();
+</script>
+
+<script>
+const auto = document.getElementById("auto").getContext("2d");
+
+// pozadina
+auto.fillStyle = "#a8dcf5";
+auto.fillRect(0, 0, 300, 200);
+
+// cesta
+auto.fillStyle = "#555";
+auto.fillRect(0, 145, 300, 55);
+
+// karoserija
+auto.fillStyle = "#e63946";
+auto.fillRect(55, 100, 190, 45);
+
+// gornji dio auta
+auto.beginPath();
+auto.moveTo(90, 100);
+auto.lineTo(120, 65);
+auto.lineTo(190, 65);
+auto.lineTo(220, 100);
+auto.closePath();
+auto.fill();
+
+// prozori
+auto.fillStyle = "#8dd7f7";
+
+auto.beginPath();
+auto.moveTo(125, 72);
+auto.lineTo(135, 72);
+auto.lineTo(135, 95);
+auto.lineTo(105, 95);
+auto.closePath();
+auto.fill();
+
+auto.beginPath();
+auto.moveTo(142, 72);
+auto.lineTo(185, 72);
+auto.lineTo(205, 95);
+auto.lineTo(142, 95);
+auto.closePath();
+auto.fill();
+
+// kotači
+auto.fillStyle = "#222";
+
+auto.beginPath();
+auto.arc(95, 145, 22, 0, Math.PI * 2);
+auto.fill();
+
+auto.beginPath();
+auto.arc(205, 145, 22, 0, Math.PI * 2);
+auto.fill();
+
+// sredina kotača
+auto.fillStyle = "#aaa";
+
+auto.beginPath();
+auto.arc(95, 145, 9, 0, Math.PI * 2);
+auto.fill();
+
+auto.beginPath();
+auto.arc(205, 145, 9, 0, Math.PI * 2);
+auto.fill();
+</script>
+
+<script>const drvo = document.getElementById("drvo").getContext("2d");
+
+// nebo
+drvo.fillStyle = "#a8dcf5";
+drvo.fillRect(0, 0, 300, 200);
+
+// trava
+drvo.fillStyle = "#76b852";
+drvo.fillRect(0, 160, 300, 40);
+
+// deblo
+drvo.fillStyle = "#8b5a2b";
+drvo.fillRect(130, 90, 40, 75);
+
+// krošnja
+drvo.fillStyle = "#2e8b57";
+
+drvo.beginPath();
+drvo.arc(130, 75, 45, 0, Math.PI * 2);
+drvo.fill();
+
+drvo.beginPath();
+drvo.arc(170, 75, 45, 0, Math.PI * 2);
+drvo.fill();
+
+drvo.beginPath();
+drvo.arc(150, 45, 45, 0, Math.PI * 2);
+drvo.fill();</script>
+
+<script>
+const kuca = document.getElementById("kuca").getContext("2d");
+
+// nebo
+kuca.fillStyle = "#a8dcf5";
+kuca.fillRect(0, 0, 300, 200);
+
+// trava
+kuca.fillStyle = "#75b84a";
+kuca.fillRect(0, 160, 300, 40);
+
+// kuća
+kuca.fillStyle = "#f4c27a";
+kuca.fillRect(75, 95, 150, 65);
+
+// krov
+kuca.fillStyle = "#c94c4c";
+kuca.beginPath();
+kuca.moveTo(55, 95);
+kuca.lineTo(150, 35);
+kuca.lineTo(245, 95);
+kuca.closePath();
+kuca.fill();
+
+// vrata
+kuca.fillStyle = "#704214";
+kuca.fillRect(135, 115, 30, 45);
+
+// kvaka
+kuca.fillStyle = "#f5c518";
+kuca.beginPath();
+kuca.arc(158, 138, 3, 0, Math.PI * 2);
+kuca.fill();
+
+// prozori
+kuca.fillStyle = "#7dd3fc";
+kuca.fillRect(90, 110, 30, 25);
+kuca.fillRect(180, 110, 30, 25);
+
+// križ na prozorima
+kuca.strokeStyle = "#fff";
+kuca.lineWidth = 2;
+
+kuca.beginPath();
+kuca.moveTo(105, 110);
+kuca.lineTo(105, 135);
+kuca.moveTo(90, 122);
+kuca.lineTo(120, 122);
+kuca.stroke();
+
+kuca.beginPath();
+kuca.moveTo(195, 110);
+kuca.lineTo(195, 135);
+kuca.moveTo(180, 122);
+kuca.lineTo(210, 122);
+kuca.stroke();
+
+</script>
+<script>
+const klaun = document.getElementById("klaun").getContext("2d");
+
+// pozadina
+klaun.fillStyle = "#a8dcf5";
+klaun.fillRect(0, 0, 300, 300);
+
+// šešir
+klaun.fillStyle = "#1f5fbf";
+klaun.fillRect(88, 50, 124, 25);
+
+// lice
+klaun.fillStyle = "#fbf3dc";
+klaun.fillRect(90, 75, 120, 115);
+
+// uši
+klaun.fillStyle = "#f5c518";
+klaun.fillRect(70, 105, 20, 40);
+klaun.fillRect(210, 105, 20, 40);
+
+// oči
+klaun.fillStyle = "#1f5fbf";
+
+klaun.beginPath();
+klaun.arc(122, 115, 8, 0, Math.PI * 2);
+klaun.fill();
+
+klaun.beginPath();
+klaun.arc(178, 115, 8, 0, Math.PI * 2);
+klaun.fill();
+
+// nos
+klaun.fillStyle = "#f28c28";
+
+klaun.beginPath();
+klaun.moveTo(150, 128);
+klaun.lineTo(140, 142);
+klaun.lineTo(160, 142);
+klaun.closePath();
+klaun.fill();
+
+// usta
+klaun.fillStyle = "#f7677d";
+
+klaun.beginPath();
+klaun.arc(150, 150, 30, 0, Math.PI);
+klaun.closePath();
+klaun.fill();
+
+// leptir mašna
+klaun.fillStyle = "#1f5fbf";
+
+klaun.beginPath();
+klaun.moveTo(105, 212);
+klaun.lineTo(105, 242);
+klaun.lineTo(145, 227);
+klaun.closePath();
+klaun.fill();
+
+klaun.beginPath();
+klaun.moveTo(195, 212);
+klaun.lineTo(195, 242);
+klaun.lineTo(155, 227);
+klaun.closePath();
+klaun.fill();
+
+// sredina mašne
+klaun.fillStyle = "#f5c518";
+
+klaun.beginPath();
+klaun.arc(150, 227, 9, 0, Math.PI * 2);
+klaun.fill();
+</script>
+<script>
+    const raketa = document.getElementById("raketa").getContext("2d");
+
+// svemir
+raketa.fillStyle = "#11152e";
+raketa.fillRect(0, 0, 300, 300);
+
+// zvijezde
+raketa.fillStyle = "#fff";
+
+raketa.beginPath();
+raketa.arc(40, 40, 2, 0, Math.PI * 2);
+raketa.fill();
+
+raketa.beginPath();
+raketa.arc(250, 55, 2, 0, Math.PI * 2);
+raketa.fill();
+
+raketa.beginPath();
+raketa.arc(70, 120, 2, 0, Math.PI * 2);
+raketa.fill();
+
+raketa.beginPath();
+raketa.arc(240, 150, 2, 0, Math.PI * 2);
+raketa.fill();
+
+raketa.beginPath();
+raketa.arc(50, 220, 2, 0, Math.PI * 2);
+raketa.fill();
+
+// tijelo rakete
+raketa.fillStyle = "#e8e8e8";
+
+raketa.beginPath();
+raketa.moveTo(150, 40);
+raketa.bezierCurveTo(110, 80, 110, 170, 150, 210);
+raketa.bezierCurveTo(190, 170, 190, 80, 150, 40);
+raketa.closePath();
+raketa.fill();
+
+// prozor
+raketa.fillStyle = "#48bfe3";
+
+raketa.beginPath();
+raketa.arc(150, 105, 18, 0, Math.PI * 2);
+raketa.fill();
+
+// lijevo krilo
+raketa.fillStyle = "#e63946";
+
+raketa.beginPath();
+raketa.moveTo(120, 155);
+raketa.lineTo(80, 185);
+raketa.lineTo(120, 185);
+raketa.closePath();
+raketa.fill();
+
+// desno krilo
+raketa.beginPath();
+raketa.moveTo(180, 155);
+raketa.lineTo(220, 185);
+raketa.lineTo(180, 185);
+raketa.closePath();
+raketa.fill();
+
+// plamen
+raketa.fillStyle = "#ff9f1c";
+
+raketa.beginPath();
+raketa.moveTo(135, 195);
+raketa.lineTo(150, 250);
+raketa.lineTo(165, 195);
+raketa.closePath();
+raketa.fill();
+
+raketa.fillStyle = "#ffdf00";
+
+raketa.beginPath();
+raketa.moveTo(143, 200);
+raketa.lineTo(150, 235);
+raketa.lineTo(157, 200);
+raketa.closePath();
+raketa.fill();
+</script>
+
+<script>
+    const macka = document.getElementById("macka").getContext("2d");
+
+// pozadina
+macka.fillStyle = "#a8dcf5";
+macka.fillRect(0, 0, 300, 250);
+
+// uši
+macka.fillStyle = "#f2a65a";
+
+macka.beginPath();
+macka.moveTo(85, 75);
+macka.lineTo(100, 25);
+macka.lineTo(130, 65);
+macka.closePath();
+macka.fill();
+
+macka.beginPath();
+macka.moveTo(170, 65);
+macka.lineTo(200, 25);
+macka.lineTo(215, 75);
+macka.closePath();
+macka.fill();
+
+// glava
+macka.fillStyle = "#f2a65a";
+
+macka.beginPath();
+macka.arc(150, 115, 70, 0, Math.PI * 2);
+macka.fill();
+
+// unutrašnjost ušiju
+macka.fillStyle = "#e76f8a";
+
+macka.beginPath();
+macka.moveTo(96, 62);
+macka.lineTo(101, 42);
+macka.lineTo(116, 65);
+macka.closePath();
+macka.fill();
+
+macka.beginPath();
+macka.moveTo(184, 65);
+macka.lineTo(199, 42);
+macka.lineTo(204, 62);
+macka.closePath();
+macka.fill();
+
+// oči
+macka.fillStyle = "#222";
+
+macka.beginPath();
+macka.arc(125, 105, 8, 0, Math.PI * 2);
+macka.fill();
+
+macka.beginPath();
+macka.arc(175, 105, 8, 0, Math.PI * 2);
+macka.fill();
+
+// nos
+macka.fillStyle = "#e76f8a";
+
+macka.beginPath();
+macka.moveTo(150, 120);
+macka.lineTo(140, 130);
+macka.lineTo(160, 130);
+macka.closePath();
+macka.fill();
+
+// usta
+macka.strokeStyle = "#222";
+macka.lineWidth = 3;
+
+macka.beginPath();
+macka.moveTo(150, 130);
+macka.lineTo(150, 138);
+macka.moveTo(150, 138);
+macka.arc(140, 138, 10, 0, Math.PI / 2);
+macka.moveTo(150, 138);
+macka.arc(160, 138, 10, Math.PI / 2, Math.PI);
+macka.stroke();
+
+// brkovi
+macka.beginPath();
+
+macka.moveTo(120, 130);
+macka.lineTo(70, 120);
+
+macka.moveTo(120, 138);
+macka.lineTo(65, 140);
+
+macka.moveTo(180, 130);
+macka.lineTo(230, 120);
+
+macka.moveTo(180, 138);
+macka.lineTo(235, 140);
+
+macka.stroke();
 </script>
 
 <h2>Kontakt formular</h2>
@@ -117,6 +594,8 @@
   <button type="submit">Pošalji</button>
   <button type="reset">Reset</button>
 </form>
+
+
 
 </body>
 </html>
