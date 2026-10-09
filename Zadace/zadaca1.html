@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <nav>
+  <ul>
+    <li><a href="index.html">Početna</a></li>
+    <li><a href="vijesti.html">Vijesti</a></li>
+    <li><a href="novac.html">Novac</a></li>
+  </ul>
+</nav>
+
+    <h1>HTML, CSS, Canvas i SVG</h1>
+    <div class="okvir">
+    
+<p><i>Canvas</i> je oznaka (tag) HTML5 standarda namijenjena crtanju.
+ <p>Canvas je 2D crtaća platforma unutar web preglednika, a koristi JavaScript i HTML.</p>
+<p>Upotrebom JavaScript-a se može pristupiti čitavom setu funkcija za crtanje linija,</p>
+<p>pravokutnika, lukova, crta, teksta …</p>
+</p>
+<p>On nema vlastiti sadržaj, a od parametara ima samo dimenzije.</p>
+<ul>
+    <li>Canvas API (API - Application Programming Interface - aplikacijsko programsko
+sučelje) osigurava alate za crtanje grafike putem JavaScript-a i HTML &lt;canvas&gt;
+elementa.</li>
+    <li>Canvas API je uglavnom namijenjen 2D crtanju, iako postoji mogućnost rada i sa 3D
+grafikom preko WebGL API –ja</li>
+    <li>Crtanje grafike s pomoću oznake &lt;canvas&gt; kombinira poznavanje HTML-a, CSS-a i
+JavaScripta, pa ćemo njega učiti sljedećem poglavlju.</li>
+  </ul>
+<hr>
+<p>SVG (Scalable Vector Graphics) većinom je manje težine u usporedbi sa Bitmap rasterskom </p>
+<p>slikom, koja posjeduje otprilike iste rezoluciju i grafički prikaz.</p>
+<p>Uključivanje SVG-a u HTML dokument omogućava naknadno stiliziranje grafike putem CSS-a,</p>
+<p>ali i manipulaciju JavaScript-om. Tako možemo promijeniti svojstva, kao što su: boja</p>
+<p>pozadine, teksta, okvira, na isti način kao i za bilo koji HTML element.</p>
+<p>Zbog toga je omogućeno i animirati sve SVG objekte preko JavaScript biblioteke kao što je</p>
+<p>jQuery.</p>
+<hr>
+<h3>Usporedba SVG-a i Canvasa <span>- h3</span></h3>
+
+  <table class="usporedba">
+    
+        <thead>
+          <tr><th>category</th><th>canvas</th><th>svg</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Supporting <br> elements</td><td>bitmap, based on pixels</td><td>Vector illustration <br>based on graphic <br>elements</td></tr>
+          <tr><td>operation <br>subject</td><td>Single HTML element</td><td>Various graphic elements</td></tr>
+          <tr><td>Driver</td><td>Javascript and other script driven</td><td>Script or CSS driven</td></tr>
+        </tbody>
+      </table>
+      <hr>
+      <thead>
+
+        <table class="kontakt">
+          <tr><th><b>mjesec</b></th><th><b>ušteda</b></th><th><b>Ušteda za blagdane</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sviječanj</td><td>$100</td><td rowspan="2" >$50</td></tr>
+          <tr><td>Veljača</td><td>$80</td></tr>
+          
+        </tbody>
+      </table>
+   
+
+</div>
+
+<img height="220" width="480" src="Snimka zaslona 2026-10-09 181229.png" alt="Vector i Raster">
+<h2>Primjer SVG-a i Canvasa</h2>
+<h2>10. Brod</h2>
+<canvas id="brod" width="300" height="250"></canvas>
+<script>const brod = document.getElementById("brod").getContext("2d");
+brod.fillStyle = "#87CEEB";
+brod.fillRect(0, 0, 300, 250);
+
+// sunce
+brod.fillStyle = "#FFD93D";
+brod.beginPath();
+brod.arc(50, 45, 25, 0, Math.PI * 2);
+brod.fill();
+
+// more
+brod.fillStyle = "#168AAD";
+brod.fillRect(0, 135, 300, 115);
+
+// trup broda
+brod.fillStyle = "#8B4513";
+brod.beginPath();
+brod.moveTo(45, 145);
+brod.lineTo(255, 145);
+brod.lineTo(215, 195);
+brod.lineTo(85, 195);
+brod.closePath();
+brod.fill();
+
+// jarbol
+brod.strokeStyle = "#5C4033";
+brod.lineWidth = 5;
+brod.beginPath();
+brod.moveTo(150, 45);
+brod.lineTo(150, 145);
+brod.stroke();
+
+// jedro
+brod.fillStyle = "#FFFFFF";
+brod.beginPath();
+brod.moveTo(140, 55);
+brod.lineTo(75, 130);
+brod.lineTo(140, 130);
+brod.closePath();
+brod.fill();
+
+brod.fillStyle = "#E63946";
+brod.beginPath();
+brod.moveTo(160, 65);
+brod.lineTo(220, 135);
+brod.lineTo(160, 135);
+brod.closePath();
+brod.fill();
+
+// valovi
+brod.strokeStyle = "#B8F2FF";
+brod.lineWidth = 3;
+
+for (let x = 20; x < 300; x += 65) {
+  brod.beginPath();
+  brod.moveTo(x, 215);
+  brod.lineTo(x + 35, 215);
+  brod.stroke();
+}</script>
+<h3>Forma</h3>
+      <form onsubmit="event.preventDefault(); alert('Forma poslana!');">
+        <label for="ime">Ime:</label>
+        <input type="text" id="ime" name="ime" placeholder="Upiši ime" required>
+
+        <label for="lozinka">Lozinka:</label>
+        <input type="password" id="lozinka">
+
+        
+        
+
+        <label for="datum">color:</label>
+        <input type="color" id="color">
+        <button type="submit">Pošalji</button>
+        <button type="reset">Reset</button>
+
+       
+        
+
+        <select>
+       
+        </select>
+
+</body>
+</html>
