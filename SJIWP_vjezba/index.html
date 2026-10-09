@@ -133,6 +133,24 @@
 <h3>7. Mačka</h3>
 <canvas id="macka" width="300" height="250"></canvas>
 
+<h2>8. Sunce</h2>
+<canvas id="sunce" width="300" height="250"></canvas>
+
+<h2>9. Planet</h2>
+<canvas id="planet" width="300" height="250"></canvas>
+
+<h2>10. Brod</h2>
+<canvas id="brod" width="300" height="250"></canvas>
+
+<h2>11. Cvijet</h2>
+<canvas id="cvijet" width="300" height="250"></canvas>
+
+<h2>12. Snjegović</h2>
+<canvas id="snjegovic" width="300" height="300"></canvas>
+
+<h2>13. Kućica u noći</h2>
+<canvas id="noc" width="300" height="250"></canvas>
+
 <script>
 
 // ========================================
@@ -585,7 +603,265 @@ macka.lineTo(235, 140);
 
 macka.stroke();
 </script>
+<script>const sunce = document.getElementById("sunce").getContext("2d");
 
+sunce.fillStyle = "#87CEEB";
+sunce.fillRect(0, 0, 300, 250);
+
+// zrake
+sunce.strokeStyle = "#FF9800";
+sunce.lineWidth = 6;
+
+for (let i = 0; i < 12; i++) {
+  const kut = i * Math.PI / 6;
+  sunce.beginPath();
+  sunce.moveTo(
+    150 + Math.cos(kut) * 55,
+    110 + Math.sin(kut) * 55
+  );
+  sunce.lineTo(
+    150 + Math.cos(kut) * 75,
+    110 + Math.sin(kut) * 75
+  );
+  sunce.stroke();
+}
+
+// sunce
+sunce.fillStyle = "#FFD93D";
+sunce.beginPath();
+sunce.arc(150, 110, 48, 0, Math.PI * 2);
+sunce.fill();
+
+// oči
+sunce.fillStyle = "#222";
+sunce.beginPath();
+sunce.arc(135, 103, 4, 0, Math.PI * 2);
+sunce.arc(165, 103, 4, 0, Math.PI * 2);
+sunce.fill();
+
+// osmijeh
+sunce.strokeStyle = "#222";
+sunce.lineWidth = 3;
+sunce.beginPath();
+sunce.arc(150, 110, 22, 0.2, Math.PI - 0.2);
+sunce.stroke();
+
+// trava
+sunce.fillStyle = "#58B368";
+sunce.fillRect(0, 190, 300, 60);</script>
+
+<script>const planet = document.getElementById("planet").getContext("2d");
+
+planet.fillStyle = "#10152F";
+planet.fillRect(0, 0, 300, 250);
+
+// zvijezde
+planet.fillStyle = "white";
+
+[[35, 35], [250, 40], [65, 200], [245, 190], [220, 75]]
+.forEach(([x, y]) => {
+  planet.beginPath();
+  planet.arc(x, y, 2, 0, Math.PI * 2);
+  planet.fill();
+});
+
+// prsten planeta
+planet.strokeStyle = "#E6B566";
+planet.lineWidth = 12;
+planet.beginPath();
+planet.ellipse(150, 125, 85, 25, -0.25, 0, Math.PI * 2);
+planet.stroke();
+
+// planet
+planet.fillStyle = "#8E7DFF";
+planet.beginPath();
+planet.arc(150, 125, 52, 0, Math.PI * 2);
+planet.fill();
+
+// detalji
+planet.fillStyle = "#B8AEFF";
+planet.beginPath();
+planet.arc(135, 105, 12, 0, Math.PI * 2);
+planet.fill();
+
+planet.beginPath();
+planet.arc(170, 145, 17, 0, Math.PI * 2);
+planet.fill();</script>
+<script>const brod = document.getElementById("brod").getContext("2d");
+
+brod.fillStyle = "#87CEEB";
+brod.fillRect(0, 0, 300, 250);
+
+// sunce
+brod.fillStyle = "#FFD93D";
+brod.beginPath();
+brod.arc(240, 45, 25, 0, Math.PI * 2);
+brod.fill();
+
+// more
+brod.fillStyle = "#168AAD";
+brod.fillRect(0, 135, 300, 115);
+
+// trup broda
+brod.fillStyle = "#8B4513";
+brod.beginPath();
+brod.moveTo(45, 145);
+brod.lineTo(255, 145);
+brod.lineTo(215, 195);
+brod.lineTo(85, 195);
+brod.closePath();
+brod.fill();
+
+// jarbol
+brod.strokeStyle = "#5C4033";
+brod.lineWidth = 5;
+brod.beginPath();
+brod.moveTo(150, 45);
+brod.lineTo(150, 145);
+brod.stroke();
+
+// jedro
+brod.fillStyle = "#FFFFFF";
+brod.beginPath();
+brod.moveTo(140, 55);
+brod.lineTo(75, 130);
+brod.lineTo(140, 130);
+brod.closePath();
+brod.fill();
+
+brod.fillStyle = "#E63946";
+brod.beginPath();
+brod.moveTo(160, 65);
+brod.lineTo(220, 135);
+brod.lineTo(160, 135);
+brod.closePath();
+brod.fill();
+
+// valovi
+brod.strokeStyle = "#B8F2FF";
+brod.lineWidth = 3;
+
+for (let x = 20; x < 300; x += 65) {
+  brod.beginPath();
+  brod.moveTo(x, 215);
+  brod.lineTo(x + 35, 215);
+  brod.stroke();
+}</script>
+<script>const cvijet = document.getElementById("cvijet").getContext("2d");
+
+cvijet.fillStyle = "#BDE0FE";
+cvijet.fillRect(0, 0, 300, 250);
+
+// stabljika
+cvijet.strokeStyle = "#2D8A4B";
+cvijet.lineWidth = 8;
+cvijet.beginPath();
+cvijet.moveTo(150, 110);
+cvijet.lineTo(150, 225);
+cvijet.stroke();
+
+// listovi
+cvijet.fillStyle = "#43AA5C";
+
+cvijet.beginPath();
+cvijet.ellipse(125, 175, 27, 12, -0.5, 0, Math.PI * 2);
+cvijet.fill();
+
+cvijet.beginPath();
+cvijet.ellipse(175, 195, 27, 12, 0.5, 0, Math.PI * 2);
+cvijet.fill();
+
+// latice
+cvijet.fillStyle = "#FF69B4";
+
+for (let i = 0; i < 8; i++) {
+  const kut = i * Math.PI / 4;
+  cvijet.beginPath();
+  cvijet.arc(
+    150 + Math.cos(kut) * 30,
+    85 + Math.sin(kut) * 30,
+    19,
+    0,
+    Math.PI * 2
+  );
+  cvijet.fill();
+}
+
+// sredina cvijeta
+cvijet.fillStyle = "#FFD93D";
+cvijet.beginPath();
+cvijet.arc(150, 85, 22, 0, Math.PI * 2);
+cvijet.fill();
+
+// trava
+cvijet.fillStyle = "#5CB85C";
+cvijet.fillRect(0, 225, 300, 25);</script>
+<script>const snjegovic = document.getElementById("snjegovic").getContext("2d");
+
+snjegovic.fillStyle = "#CDEBFF";
+snjegovic.fillRect(0, 0, 300, 300);
+
+// snijeg na tlu
+snjegovic.fillStyle = "#FFFFFF";
+snjegovic.fillRect(0, 250, 300, 50);
+
+// donja kugla
+snjegovic.fillStyle = "#FFFFFF";
+snjegovic.beginPath();
+snjegovic.arc(150, 220, 55, 0, Math.PI * 2);
+snjegovic.fill();
+
+// srednja kugla
+snjegovic.beginPath();
+snjegovic.arc(150, 145, 40, 0, Math.PI * 2);
+snjegovic.fill();
+
+// glava
+snjegovic.beginPath();
+snjegovic.arc(150, 80, 30, 0, Math.PI * 2);
+snjegovic.fill();
+
+// oči
+snjegovic.fillStyle = "#222222";
+snjegovic.beginPath();
+snjegovic.arc(140, 73, 3, 0, Math.PI * 2);
+snjegovic.arc(160, 73, 3, 0, Math.PI * 2);
+snjegovic.fill();
+
+// nos
+snjegovic.fillStyle = "#FF8C00";
+snjegovic.beginPath();
+snjegovic.moveTo(150, 80);
+snjegovic.lineTo(150, 93);
+snjegovic.lineTo(177, 85);
+snjegovic.closePath();
+snjegovic.fill();
+
+// gumbi
+snjegovic.fillStyle = "#222222";
+
+[130, 150, 170].forEach(y => {
+  snjegovic.beginPath();
+  snjegovic.arc(150, y, 4, 0, Math.PI * 2);
+  snjegovic.fill();
+});
+
+// šešir
+snjegovic.fillStyle = "#E63946";
+snjegovic.fillRect(120, 42, 60, 8);
+snjegovic.fillRect(132, 15, 36, 28);
+
+// ruke
+snjegovic.strokeStyle = "#8B5A2B";
+snjegovic.lineWidth = 5;
+snjegovic.beginPath();
+snjegovic.moveTo(115, 145);
+snjegovic.lineTo(75, 115);
+snjegovic.moveTo(185, 145);
+snjegovic.lineTo(225, 115);
+snjegovic.stroke();
+</script>
+<script></script>
 <h2>Kontakt formular</h2>
 <form action="forma.html" method="get">
   <input type="text" name="ime" placeholder="Ime" required>
