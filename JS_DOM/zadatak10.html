@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadatak 10 - Promijeni sliku</title>
+
+    <style>
+        img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Promjena slike</h2>
+
+    <img
+        id="slika"
+        src="https://placehold.co/300x200/87CEEB/000000?text=Prva+slika"
+        alt="Prva slika s plavom pozadinom"
+    >
+
+    <button onclick="promijeniSliku()">Promijeni sliku</button>
+
+    <script>
+        function promijeniSliku() {
+            const slika = document.getElementById("slika");
+
+            slika.src =
+                "https://placehold.co/300x200/90EE90/000000?text=Druga+slika";
+
+            slika.alt = "Druga slika sa zelenom pozadinom";
+        }
+    </script>
+
+</body>
+</html>

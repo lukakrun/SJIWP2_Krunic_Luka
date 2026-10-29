@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadatak 12 - Omogući/onemogući gumb</title>
+</head>
+<body>
+
+    <h2>Upravljanje gumbom</h2>
+
+    <button onclick="onemoguci()">Onemogući</button>
+    <button onclick="omoguci()">Omogući</button>
+
+    <br><br>
+
+    <button id="glavniGumb" onclick="klikni()">
+        Klikni me
+    </button>
+
+    <p id="poruka"></p>
+
+    <script>
+        function onemoguci() {
+            document.getElementById("glavniGumb").disabled = true;
+        }
+
+        function omoguci() {
+            document.getElementById("glavniGumb").disabled = false;
+        }
+
+        function klikni() {
+            document.getElementById("poruka").textContent =
+                "Gumb je uspješno kliknut!";
+        }
+    </script>
+
+</body>
+</html>

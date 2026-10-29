@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadatak 8 - Uključi/isključi klasu</title>
+
+    <style>
+        .kartica {
+            padding: 20px;
+            margin: 20px;
+            border: 2px solid gray;
+            border-radius: 10px;
+            width: 250px;
+        }
+
+        .istaknuto {
+            background-color: yellow;
+            border: 3px solid orange;
+            color: darkblue;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="kartica" id="kartica">
+        <h2>Moja kartica</h2>
+        <p>Ovo je primjer kartice.</p>
+    </div>
+
+    <button onclick="toggle()">Promijeni izgled</button>
+
+    <script>
+        function toggle() {
+            const kartica = document.getElementById("kartica");
+            kartica.classList.toggle("istaknuto");
+        }
+    </script>
+
+</body>
+</html>

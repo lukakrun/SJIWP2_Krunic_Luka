@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zadatak 9 - Prikaži ili sakrij tekst</title>
+</head>
+<body>
+
+    <p id="tekst">Ovo je tekst koji možemo sakriti ili prikazati.</p>
+
+    <button onclick="promijeniPrikaz()">Sakrij / Prikaži tekst</button>
+
+    <script>
+        function promijeniPrikaz() {
+            const tekst = document.getElementById("tekst");
+
+            if (tekst.style.display === "none") {
+                tekst.style.display = "block";
+            } else {
+                tekst.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
